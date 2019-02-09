@@ -86,4 +86,4 @@ A Minimum Support Price (MSP) is an example of price floors that are set by the 
 
 In other words, the producers produce more but the consumers are reluctant to buy at that price point. Thus, it creates a surplus of the commodity.
 The government takes the burden of buying the excess surplus, which is only fair because it is the government that intervenes in the naturally facilitated demand and supply forces. However, in doing so, the government has to bear the burden of buying at a higher price and selling at a lower price.
-In some other cases, the government introduces production quotas; these increase the prices while the producer is incentivised to produce less. This saves the government from bearing the loss and supply and demand stay at equilibrium.
+In some other cases, the government introduces production quotas; these increase the prices while the producer is incentivised to produce less. This saves the government from bearing the loss, and supply and demand stay at equilibrium.
