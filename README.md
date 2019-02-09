@@ -48,6 +48,7 @@ The function `deseasonalise` acts in a similar way except that it only returns t
 
 ### Flagging the Set of APMC-Commodity Clusters that have High Price Fluctuation
 * The code for the fourth task: [Task Four](https://github.com/itsmepiyush2/Agriculture-Commodities-Price-and-Seasons/blob/master/fluctuations.ipynb)
+
 The basic idea here is to first collect all the sets of APMCs and Commodities that have more than a year's worth of data. Then finding how separated the data values are by finding the coefficient of variation. Then sort the APMC-Commodity clusters in decreasing order of coefficient of variation and choose the top few clusters which have the highest coefficients of variation.
 
 After sorting the clusters in descending order of coefficients of variation, it is plotted.
