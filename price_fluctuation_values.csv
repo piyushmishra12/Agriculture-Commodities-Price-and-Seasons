@@ -1,0 +1,23 @@
+date,APMC,Commodity,Year,Month,arrivals_in_qtl,min_price,max_price,modal_price,cluster
+2016-10-01,Barshi,brinjal,2016,October,91,2416,4163,3574,brinjal at Barshi
+2016-07-01,Barshi,tomato,2016,July,147,1467,2445,1924,tomato at Barshi
+2016-07-01,Barshi,cabbage,2016,July,124,872,1486,1168,cabbage at Barshi
+2016-07-01,Barshi,flower,2016,July,106,1019,1641,1332,flower at Barshi
+2016-07-01,Barshi,green chilli,2016,July,138,3055,5190,3990,green chilli at Barshi
+2016-10-01,Barshi,cluster bean,2016,October,57,3095,4821,4021,cluster bean at Barshi
+2015-06-01,Pune-Manjri,ambat chuka,2015,June,4,900,1800,1350,ambat chuka at Pune-Manjri
+2016-09-01,Barshi,lemon,2016,September,188,2911,4647,3858,lemon at Barshi
+2016-10-01,Barshi,cucumber,2016,October,151,768,1590,1213,cucumber at Barshi
+2016-07-01,Barshi,capsicum,2016,July,69,2228,3569,3000,capsicum at Barshi
+2016-08-01,Barshi,capsicum,2016,August,120,1718,2316,2030,capsicum at Barshi
+2016-07-01,Barshi,ladies finger,2016,July,48,1232,2105,1673,ladies finger at Barshi
+2016-10-01,Barshi,ladies finger,2016,October,81,1066,2106,1644,ladies finger at Barshi
+2016-07-01,Barshi,bitter gourd,2016,July,79,1985,3156,2565,bitter gourd at Barshi
+2016-11-01,Barshi,bitter gourd,2016,November,37,1500,2444,2011,bitter gourd at Barshi
+2016-08-01,Pune-Manjri,ghosali(bhaji),2016,August,45,3343,3962,3617,ghosali(bhaji) at Pune-Manjri
+2015-10-01,Pune-Manjri,onion,2015,October,216,1209,2535,1887,onion at Pune-Manjri
+2015-11-01,Pune-Manjri,onion,2015,November,118,1222,2600,1794,onion at Pune-Manjri
+2016-06-01,Pune,squash gourd,2016,June,1453,2820,6300,5848,squash gourd at Pune
+2015-08-01,Lasur Station,onion,2015,August,5634,967,5033,3833,onion at Lasur Station
+2015-09-01,Lasur Station,onion,2015,September,216,1275,4300,3488,onion at Lasur Station
+2015-09-01,Pune-Manjri,rajgira,2015,September,45,733,1367,1140,rajgira at Pune-Manjri
