@@ -35,7 +35,7 @@ We know that MSPs are decided by government policy. So the MSP dataset is simply
 ### Seasonality Detection, Seasonality Removal and Comparing Prices
 * The code for the second and third tasks: [Tasks Two and Three](https://github.com/itsmepiyush2/Agriculture-Commodities-Price-and-Seasons/blob/master/seasonality%20detection%2C%20deseasonalising%20and%20comparing%20prices.ipynb)
 
-#### "Any predictable change or pattern in a time series that recurs or repeats over a one-year period can be said to be seasonal."
+#### "Any predictable change or pattern in a time series that recurs or repeats over a specific period can be said to be seasonal."
 In order to detect seasonality in a time series, the signal needs to be broken down into trend, seasonality and the residue. In case of an additive seasonality, the signal is the summation of trend, seasonality and residue; and in case of multiplicative seasonality, the signal is the product of the three components.
 <img src="seasonal_decompose.png" class="img-responsive" alt="">
 The function `identify_seasonality` takes in two inputs, `APMC` and `Commodity`, and displays the type of seasonality that is present in the signal for the corresponding APMC and Commodity. It also decomposes the signal into its 3 components and plots them. Two use cases are given below in the form of a gif.
@@ -48,7 +48,7 @@ The function `identify_seasonality` takes in two inputs, `APMC` and `Commodity`,
 The function `deseasonalise` acts in a similar way except that it only returns the original and the deseasonalised signals. It acts as a helping function for another function `compare_prices` which takes in the inputs `APMC` and `Commodity` and compared the MSP, raw prices and de-seasonalised prices for the corresponding APMC and Commodity. A use case is given below.
 <img src="compare_prices.gif" class="img-responsive" alt="">
 
-### Flagging the Set of APMC-Commodity Clusters that have High Price Fluctuation
+### Flagging the Set of APMC-Commodity Clusters that have High Price Fluctuation:
 * The code for the fourth task: [Task Four](https://github.com/itsmepiyush2/Agriculture-Commodities-Price-and-Seasons/blob/master/fluctuations.ipynb)
 
 The basic idea here is to first collect all the sets of APMCs and Commodities that have more than a year's worth of data. Then finding how separated the data values are by finding the coefficient of variation. Then sort the APMC-Commodity clusters in decreasing order of coefficient of variation and choose the top few clusters which have the highest coefficients of variation.
@@ -61,4 +61,11 @@ It is evident that the clusters having indices less than or equal to 20 need to 
 
 Now, if we consider Gaussian (Normal) distribution, we know that ~99.7% of the entire data lies within 3 standard deviations of the mean on both sides. So if in case, a data point crosses 3 standard deviations, then the cluster has high price fluctuation. Using this intuition, the values of modal price that cross 3 standard deviations are recorded.
 
+### Conclusion:
 
+A Minimum Support Price (MSP) is an example of price floors that are set by the government to prevent them from falling further. It is the minimum price in which a commodity can be sold. But setting of price floors have other effects on individual demand and supply. If a price floor is set above the equilibrium price, then it reduces the demand for the commodity but there is an increase in its supply.
+<img src="price_floor.gif" class="img-responsive" alt="">
+
+In other words, the producers produce more but the consumers are reluctant to buy at that price point. Thus, it creates a surplus of the commodity.
+Since, it is the government that has intervened in the naturally facilitated demand and supply forces, it is the government that buys this surplus from the producer to counter the excess supply problem. However, that incurs a loss to the government itself.
+In some other cases, the government introduces production quotas; these increase the prices while the producer is incentivised to produce less.
