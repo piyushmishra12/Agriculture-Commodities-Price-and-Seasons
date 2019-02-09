@@ -30,17 +30,32 @@ From the scatterplots, it is evident that there are three data points that do no
 
 Now even after cleaning the data, there is one particular point that shows some abnormal behaviour. But, it's scale is almost negligible compared to the previous outliers. Moreover, there could be some other reason of it showing that specific behaviour which might not be decipherable right now. So removing it might as well be more dangerous.
 
-### Seasonality Detection, Seasonality Removal and Comapring Prices
+### Seasonality Detection, Seasonality Removal and Comparing Prices
 * The code for the second and third tasks: [Tasks Two and Three](https://github.com/itsmepiyush2/Agriculture-Commodities-Price-and-Seasons/blob/master/seasonality%20detection%2C%20deseasonalising%20and%20comparing%20prices.ipynb)
 
 "Any predictable change or pattern in a time series that recurs or repeats over a one-year period can be said to be seasonal."
 In order to detect seasonality in a time series, the signal needs to be broken down into trend, seasonality and the residue. In case of an additive seasonality, the signal is the summation of trend, seasonality and residue; and in case of multiplicative seasonality, the signal is the product of the three components.
 <img src="seasonal_decompose.png" class="img-responsive" alt="">
 The function `identify_seasonality` takes in two inputs, `APMC` and `Commodity`, and displays the type of seasonality that is present in the signal for the corresponding APMC and Commodity. It also decomposes the signal into its 3 components and plots them. Two use cases are given below in the form of a gif.
+(The gifs are little slower than the actual running code.)
+* Detecting additive seasonality
 <img src="additive_example.gif" class="img-responsive" alt="">
+* Detecting multiplicative seasonality
 <img src="multiplicative_example.gif" class="img-responsive" alt="">
 
 The function `deseasonalise` acts in a similar way except that it only returns the original and the deseasonalised signals. It acts as a helping function for another function `compare_prices` which takes in the inputs `APMC` and `Commodity` and compared the MSP, raw prices and de-seasonalised prices for the corresponding APMC and Commodity. A use case is given below.
 <img src="compare_prices.gif" class="img-responsive" alt="">
+
+### Flagging the Set of APMC-Commodity Clusters that have High Price Fluctuation
+* The code for the fourth task: [Task Four](https://github.com/itsmepiyush2/Agriculture-Commodities-Price-and-Seasons/blob/master/fluctuations.ipynb)
+The basic idea here is to first collect all the sets of APMCs and Commodities that have more than a year's worth of data. Then finding how separated the data values are by finding the coefficient of variation. Then sort the APMC-Commodity clusters in decreasing order of coefficient of variation and choose the top few clusters which have the highest coefficients of variation.
+
+After sorting the clusters in descending order of coefficients of variation, it is plotted.
+<img src="fluctuation_cluster1.png" class="img-responsive" alt="">
+Logically, only those clusters need to be selected which lie to the left of the elbow formation since these have high coefficients of variation. However, it is difficult to pin-point exactly where the elbow is being formed. Let's zoom in.
+<img src="fluctuation_cluster2.png" class="img-responsive" alt="">
+It is evident that the clusters having indices less than or equal to 20 need to be selected.
+
+Now, if we consider Gaussian (Normal) distribution, we know that ~99.7% of the entire data lies within 3 standard deviations of the mean on both sides. So if in case, a data point crosses 3 standard deviations, then the cluster has high price fluctuation. Using this intuition, the values of modal price that cross 3 standard deviations are recorded.
 
 
