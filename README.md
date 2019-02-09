@@ -1,6 +1,6 @@
 # Agriculture-Commodities-Price-and-Seasons
 
-There are two raw datasets available, one with MSP values of different commodities throighout different years, and the other with minimum, maximum and modal price values for different commodities at different APMCs in different months.
+There are two raw datasets available, one with MSP values of different commodities throughout different years, and the other with minimum, maximum and modal price values for different commodities at different APMCs in different months.
 
 ## Aim:
 1. Test and filter outliers.
