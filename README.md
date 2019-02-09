@@ -80,7 +80,7 @@ Now, if we consider Gaussian (Normal) distribution, we know that ~99.7% of the e
 
 ### Conclusion:
 
-A Minimum Support Price (MSP) is an example of price floors that are set by the government to prevent them from falling further. It is the minimum price in which a commodity can be sold. But setting of price floors have other effects on individual demand and supply. If a price floor is set above the equilibrium price, then it reduces the demand for the commodity but there is an increase in its supply.
+An MSP is a prime example of price floors that are set by the government to prevent them from falling further in order to prevent the exploitation of the seller. It is the minimum price in which a commodity can be sold. But setting of price floors have other effects on individual demand and supply. If a price floor is set above the equilibrium price, then it reduces the demand for the commodity but there is an increase in its supply.
 
 <img src="price_floor.gif" class="img-responsive" alt="">
 
