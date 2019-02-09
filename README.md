@@ -1,6 +1,8 @@
 # Agriculture-Commodities-Price-and-Seasons
 
-There are two raw datasets available, one with MSP values of different commodities throughout different years, and the other with minimum, maximum and modal price values for different commodities at different APMCs in different months.
+Minimum Support Price or MSP refers to the minimum price at which a commodity can be sold legally. The MSP is set by the government for various commodities annually. Agricultural Produce Market Committees or APMCs are the different marketing boards established by the government. A farmer sells his/her produce via auction at the mandi established by the APMC. Retailers cannot directly buy produce from the farmers. This prevents exploitation of the farmer.
+
+Here, APMCs in Maharashtra are being looked at. Commodities are brought into the mandis and auctioned, however the price should legally be above the MSP.
 
 ## Aim:
 1. Test and filter outliers.
@@ -11,6 +13,12 @@ There are two raw datasets available, one with MSP values of different commoditi
     -De-seasonalise prices for each commodity and APMC according to the detected seasonality type
 3. Compare prices in APMC/Mandi with MSP(Minimum Support Price)- raw and deseasonalised
 4. Flag set of APMC/mandis and commodities with highest price fluctuation across different commodities in each relevant season, and year.
+
+## Data Files:
+
+All the data files are in `.csv` format.
+* `CMO_MSP_Mandi.csv`: Raw data containing the MSPs of different commodities set up by the government in different years.
+* `Monthly_data_cmo.csv`: Raw data containing the minimum, maximum and modal prices, and the quantity supplied in quintals, of commodities at various mandis for each month.
 
 
 ## Approach Methodology and Documentation:
@@ -40,23 +48,32 @@ In order to detect seasonality in a time series, the signal needs to be broken d
 <img src="seasonal_decompose.png" class="img-responsive" alt="">
 The function `identify_seasonality` takes in two inputs, `APMC` and `Commodity`, and displays the type of seasonality that is present in the signal for the corresponding APMC and Commodity. It also decomposes the signal into its 3 components and plots them. Two use cases are given below in the form of a gif.
 (The gifs are little slower than the actual running code.)
+
 * Detecting additive seasonality
+
 <img src="additive_example.gif" class="img-responsive" alt="">
+
 * Detecting multiplicative seasonality
+
 <img src="multiplicative_example.gif" class="img-responsive" alt="">
 
-The function `deseasonalise` acts in a similar way except that it only returns the original and the deseasonalised signals. It acts as a helping function for another function `compare_prices` which takes in the inputs `APMC` and `Commodity` and compared the MSP, raw prices and de-seasonalised prices for the corresponding APMC and Commodity. A use case is given below.
+The function `deseasonalise` acts in a similar way except that it only returns the original and the deseasonalised signals. It acts as a helping function for another function `compare_prices` which takes in the inputs `APMC` and `Commodity` and compares the MSP, raw prices and de-seasonalised prices for the corresponding APMC and Commodity. A use case is given below.
+
 <img src="compare_prices.gif" class="img-responsive" alt="">
 
 ### Flagging the Set of APMC-Commodity Clusters that have High Price Fluctuation:
 * The code for the fourth task: [Task Four](https://github.com/itsmepiyush2/Agriculture-Commodities-Price-and-Seasons/blob/master/fluctuations.ipynb)
 
-The basic idea here is to first collect all the sets of APMCs and Commodities that have more than a year's worth of data. Then finding how separated the data values are by finding the coefficient of variation. Then sort the APMC-Commodity clusters in decreasing order of coefficient of variation and choose the top few clusters which have the highest coefficients of variation.
+The basic idea here is to first collect all the sets of APMCs and Commodities that have more than a year's worth of data. Then finding how far the data values are spread out by finding the coefficient of variation. (Coefficient of variation is simply the ratio of standard deviation and mean) Then sort the APMC-Commodity clusters in decreasing order of coefficient of variation and choose the top few clusters which have the highest coefficients of variation.
 
 After sorting the clusters in descending order of coefficients of variation, it is plotted.
+
 <img src="fluctuation_cluster1.png" class="img-responsive" alt="">
+
 Logically, only those clusters need to be selected which lie to the left of the elbow formation since these have high coefficients of variation. However, it is difficult to pin-point exactly where the elbow is being formed. Let's zoom in.
+
 <img src="fluctuation_cluster2.png" class="img-responsive" alt="">
+
 It is evident that the clusters having indices less than or equal to 20 need to be selected.
 
 Now, if we consider Gaussian (Normal) distribution, we know that ~99.7% of the entire data lies within 3 standard deviations of the mean on both sides. So if in case, a data point crosses 3 standard deviations, then the cluster has high price fluctuation. Using this intuition, the values of modal price that cross 3 standard deviations are recorded.
@@ -68,5 +85,5 @@ A Minimum Support Price (MSP) is an example of price floors that are set by the 
 <img src="price_floor.gif" class="img-responsive" alt="">
 
 In other words, the producers produce more but the consumers are reluctant to buy at that price point. Thus, it creates a surplus of the commodity.
-Since, it is the government that has intervened in the naturally facilitated demand and supply forces, it is the government that buys this surplus from the producer to counter the excess supply problem. However, that incurs a loss to the government itself.
-In some other cases, the government introduces production quotas; these increase the prices while the producer is incentivised to produce less.
+The government takes the burden of buying the excess surplus, which is only fair because it is the government that intervenes in the naturally facilitated demand and supply forces. However, in doing so, the government has to bear the burden of buying at a higher price and selling at a lower price.
+In some other cases, the government introduces production quotas; these increase the prices while the producer is incentivised to produce less. This saves the government from bearing the loss and supply and demand stay at equilibrium.
