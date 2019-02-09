@@ -22,9 +22,9 @@ The MSP varies greatly from commodity to commodity as can be seen from this bar 
 
 While carrying out outlier detection, one must be very careful and meticulous in order not to remove any useful information. Thus, it is important to keep in mind that a univariate outlier might not be a multivariate or regression outlier and vice versa. Thus, simply plotting boxplots and removing data values that seem to have an abnormal behaviour might chop off some useful information. Hence, I'll follow a very rudimentary approach to detect outliers.
 The basic idea is the intuition that minimum, maximum and modal prices, throughout time, should follow similar patterns. Thus, they should be directly proportional to each other. In other words, they should have a positive correlation.
-<img src="scatterplot_before_cleaning" class="img-responsive" alt="">
+<img src="scatterplot_before_cleaning.png" class="img-responsive" alt="">
 
 From the scatterplots, it is evident that there are three data points that do not conform to the general behaviour, two with minimum price > 500000 and one with maximum price > 1400000. Once these data points are removed, the scatterplots are as shown.
-<img src="scatterplot_after_cleaning" class="img-responsive" alt="">
+<img src="scatterplot_after_cleaning.png" class="img-responsive" alt="">
 
 Now even after cleaning the data, there is one particular point that shows some abnormal behaviour. But, it's scale is almost negligible compared to the previous outliers. Moreover, there could be some other reason of it showing that specific behaviour which might not be decipherable right now. So removing it might as well be more dangerous.
