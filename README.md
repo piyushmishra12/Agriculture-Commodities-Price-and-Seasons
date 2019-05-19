@@ -1,18 +1,18 @@
-# Agriculture-Commodities-Price-and-Seasons
+# Minimum Support Price Analysis with regard to APMCs
 
 Minimum Support Price or MSP refers to the minimum price at which a commodity can be sold legally. The MSP is set by the government for various commodities annually. Agricultural Produce Market Committees or APMCs are the different marketing boards established by the government. A farmer sells his/her produce via auction at the mandi established by the APMC. Retailers cannot directly buy produce from the farmers. This prevents exploitation of the farmer.
 
 Here, APMCs in Maharashtra are being looked at. Commodities are brought into the mandis and auctioned, however the price should legally be above the MSP.
 
-## Aim:
-1. Test and filter outliers.
-2. Understand price fluctuations accounting the seasonal effect
+## Objectives:
+1. To test and filter outliers.
+2. To understand price fluctuations accounting the seasonal effect
     
     -Detect seasonality type (multiplicative or additive) for each cluster of APMC and commodities
     
     -De-seasonalise prices for each commodity and APMC according to the detected seasonality type
-3. Compare prices in APMC/Mandi with MSP(Minimum Support Price)- raw and deseasonalised
-4. Flag set of APMC/mandis and commodities with highest price fluctuation across different commodities in each relevant season, and year.
+3. To compare prices in APMC/Mandi with MSP(Minimum Support Price)- raw and deseasonalised
+4. To flag set of APMC/mandis and commodities with highest price fluctuation across different commodities in each relevant season, and year.
 
 ## Data Files:
 
@@ -24,7 +24,7 @@ All the data files are in `.csv` format.
 ## Approach Methodology and Documentation:
 
 ### Exploration and Finding Outliers
-* The code for the first task: [Task One](https://github.com/itsmepiyush2/Agriculture-Commodities-Price-and-Seasons/blob/master/exploration%20and%20outlier%20detection.ipynb)
+* The code for the first objective: [here](https://github.com/itsmepiyush2/Agriculture-Commodities-Price-and-Seasons/blob/master/exploration%20and%20outlier%20detection.ipynb)
 
 The MSP varies greatly from commodity to commodity as can be seen from this bar plot.
 <img src="msp.png" class="img-responsive" alt="">
@@ -41,7 +41,7 @@ Now even after cleaning the data, there is one particular point that shows some 
 We know that MSPs are decided by government policy. So the MSP dataset is simply a policy jotted down in a tabular form. There is no experiment so there are no observations in actuality. We are treating the data values in MSP dataset as ground truths. So attempting to detect outliers in the MSP dataset would seem absurd.
 
 ### Seasonality Detection, Seasonality Removal and Comparing Prices
-* The code for the second and third tasks: [Tasks Two and Three](https://github.com/itsmepiyush2/Agriculture-Commodities-Price-and-Seasons/blob/master/seasonality%20detection%2C%20deseasonalising%20and%20comparing%20prices.ipynb)
+* The code for the second and third objectives: [here](https://github.com/itsmepiyush2/Agriculture-Commodities-Price-and-Seasons/blob/master/seasonality%20detection%2C%20deseasonalising%20and%20comparing%20prices.ipynb)
 
 #### "Any predictable change or pattern in a time series that recurs or repeats over a specific period can be said to be seasonal."
 In order to detect seasonality in a time series, the signal needs to be broken down into trend, seasonality and the residue. In case of an additive seasonality, the signal is the summation of trend, seasonality and residue; and in case of multiplicative seasonality, the signal is the product of the three components.
@@ -62,7 +62,7 @@ The function `deseasonalise` acts in a similar way except that it only returns t
 <img src="compare_prices.gif" class="img-responsive" alt="">
 
 ### Flagging the Set of APMC-Commodity Clusters that have High Price Fluctuation:
-* The code for the fourth task: [Task Four](https://github.com/itsmepiyush2/Agriculture-Commodities-Price-and-Seasons/blob/master/fluctuations.ipynb)
+* The code for the fourth objective: [here](https://github.com/itsmepiyush2/Agriculture-Commodities-Price-and-Seasons/blob/master/fluctuations.ipynb)
 
 The basic idea here is to first collect all the sets of APMCs and Commodities that have more than a year's worth of data. Then finding how far the data values are spread out by finding the coefficient of variation. (Coefficient of variation is simply the ratio of standard deviation and mean) Then sort the APMC-Commodity clusters in decreasing order of coefficient of variation and choose the top few clusters which have the highest coefficients of variation.
 
